@@ -1,0 +1,159 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+class Clickform1{
+	Clickform1(){
+		JFrame f=new JFrame();
+		JLabel l = new JLabel("Registration Form  :  ");
+		l.setBounds(225,30,130,50);
+		f.add(l);
+
+		JTextField t1=new JTextField();
+		JLabel l1 = new JLabel("Name : ");
+		l1.setBounds(50,100,100,30); //x,y,w,h
+		t1.setBounds(160,105,280,20);
+		f.add(l1);
+		f.add(t1);
+		JLabel c1 = new JLabel();
+		c1.setBounds(500,100,300,30);
+		f.add(c1);
+
+		JTextField t2=new JTextField();
+		JLabel l2 = new JLabel("Contact : ");		
+		l2.setBounds(50,140,100,30);
+		t2.setBounds(160,145,280,20);
+		f.add(l2);
+		f.add(t2);		
+		JLabel c2 = new JLabel();
+		c2.setBounds(500,140,300,30);
+		f.add(c2);
+
+		JTextField t3=new JTextField();
+		JLabel l3 = new JLabel("Email:");
+		l3.setBounds(50,180,100,30);
+		t3.setBounds(160,185,280,20);
+		f.add(l3);
+		f.add(t3);
+		JLabel c3 = new JLabel();
+		c3.setBounds(500,180,300,30);
+		f.add(c3);
+
+		JLabel l4 = new JLabel("Gender:");
+		l4.setBounds(50,230,100,30);
+		f.add(l4);		
+	
+
+	  JLabel lr = new JLabel();
+	  lr.setBounds(160,200,100,50);
+	  f.add(lr);
+		final JRadioButton m = new JRadioButton("Male");
+		m.setBounds(160,220,100,50);
+		final JRadioButton fe = new JRadioButton("Female");
+		fe.setBounds(260,220,100,50);
+		final JRadioButton o = new JRadioButton("Others");
+		o.setBounds(380,220,100,50);
+		m.addItemListener(new ItemListener() {
+		public void itemStateChanged(ItemEvent e) {
+		lr.setText("Male");
+		}
+		});
+		fe.addItemListener(new ItemListener() {
+		public void itemStateChanged(ItemEvent e) {
+		lr.setText("Female");
+		}
+		});
+		o.addItemListener(new ItemListener() {
+		public void itemStateChanged(ItemEvent e) {
+		lr.setText("Others");
+		}
+		});
+
+		ButtonGroup group = new ButtonGroup();
+		group.add(m);
+		group.add(fe);
+		group.add(o);		
+		f.add(m);
+		f.add(fe);
+		f.add(o);
+		JLabel c4 = new JLabel();
+		c4.setBounds(500,240,300,30);
+		f.add(c4);
+
+     
+		JLabel l7 = new JLabel("Branch:");
+		l7.setBounds(50,265,100,30);
+		f.add(l7);
+		String[] op = {"CSE", "MECH", "DSY", "AI", "DS"};
+		JComboBox<String> jComboBox = new JComboBox<>(op);
+		jComboBox.setBounds(160,270,75,20);
+		f.add(jComboBox);
+		final Choice c = new Choice();              
+		JLabel c7 = new JLabel();
+		c7.setBounds(500,265,300,30);
+		f.add(c7);
+
+		JTextField t8=new JTextField();
+		JLabel l8 = new JLabel("DOB:");
+		l8.setBounds(50,300,100,30);
+		t8.setBounds(160,305,280,20);
+		f.add(l8);
+		f.add(t8);
+		JLabel c8 = new JLabel();
+		c8.setBounds(500,300,300,30);
+		f.add(c8);
+
+
+		JPasswordField t9=new JPasswordField();
+		JLabel l9 = new JLabel("Password:");
+		l9.setBounds(50,340,100,30);
+		t9.setBounds(250,345,190,20);
+		f.add(l9);
+		f.add(t9);
+		JLabel c9 = new JLabel();
+		c9.setBounds(500,340,300,30);
+		f.add(c9);
+
+		JLabel l10 = new JLabel("ReEnter Password: ");
+		JPasswordField t10 = new JPasswordField();
+		l10.setBounds(50,389,150,30);
+		t10.setBounds(250,385,190,20);
+		f.add(l10);
+		f.add(t10);
+
+
+		JButton b= new JButton("Submit");
+		b.setBounds(225,450,100,30);
+		f.add(b);
+		b.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String data1 = "Name : " + t1.getText();
+				c1.setText(data1);
+				String data2 = "Contact : " + t2.getText();
+				c2.setText(data2);
+				String data3 = "Email : " + t3.getText();
+				c3.setText(data3);
+				String data4 = "Gender : " + lr.getText();
+				c4.setText(data4);
+				String data7 = "Branch "+ c.getItem(c.getSelectedIndex());    
+	            l7.setText(data7);    
+				String data8 = "DOB : " + t8.getText();
+				c8.setText(data8);
+				String data9 = "Password : " + t9.getText();
+				c9.setText(data9);
+			
+			}
+		});
+
+
+		f.setSize(800,600);
+		f.setTitle("Registration form");
+		f.setLayout(null);
+		f.setVisible(true);
+    }	
+	public static void main(String args[])
+	{
+		Clickform1 awt_obj=new Clickform1();
+	}
+}
